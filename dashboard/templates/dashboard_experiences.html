@@ -1,0 +1,84 @@
+{% extends 'dashboard.html' %}
+
+{% load static %}
+
+{% block dashboardContent %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="dashboard-title">Experiences</div>
+            <small>Manage your Experiences</small>
+        </div>
+        
+        <div class="col-6">
+            <div class="create-one" id="display-create-experience-form">
+                Create One
+            </div>
+        </div>
+    </div>
+    <hr class="mt-2">
+
+
+    <div class="create-experience-form hide">
+        <form>
+            <div class="form-group">
+                <lable>Title</lable>
+                <input type="text" class="form-control" id="form-title" placeholder="Experience title">
+            </div>
+            <div class="form-group">
+                <lable>Description</lable>
+                <textarea class="form-control" id="form-description" rows="10" placeholder="Experience description"></textarea>
+            </div>
+            <div class="form-group">
+                <lable>Date</lable>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="uil uil-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="form-date" placeholder="Experience year">
+                </div>
+            </div>
+            <input type="hidden" id="experience-id">
+        </form>
+        <div class="modal-footer">
+            <a class="submit" id="creat-experience-btn">
+                <img src="{% static 'img/save-icon.svg' %}" width='25px'>
+                Save
+            </a>
+            <a class="submit" id="submit-update-experience">
+                <img src="{% static 'img/edit-icon.svg' %}" width='25px'>
+                Update
+            </a>
+
+            <a class="cancel-edit" id="display-create-experience-form">
+                <img src="{% static 'img/close-icon.svg' %}" width='25px'>
+                Close
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        {% comment %} <div class="ml-3 mt-4 h5">Experiences</div> {% endcomment %}
+        <div class="col-12 dashboard-list" id="dashboard-experiences-list">
+            {% for experience in experiences %}
+                <div class="row item">
+                    <div class="col-3 item-name">
+                        {{experience.title|truncatechars:15}}
+                    </div>
+                    <div class="col-6 text-muted text-left">
+                        {{experience.description|truncatechars:38}}
+                    </div>
+                    <div class="col-3 text-right">
+                        <!-- <i class="uil uil-edit-alt icon-edit"></i>
+                        <i class="uil uil-trash-alt icon-delete"></i> -->
+                        <img class="svg-icon-edit-experience" src="{% static 'img/edit-icon.svg' %}" width='20px' id="{{experience.id}}">
+                        <img class="svg-icon-delete-experience" src="{% static 'img/trash-icon.svg' %}" width='20px' id="{{experience.id}}">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock dashboardContent %}

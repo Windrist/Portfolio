@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="row home ">
+            <div class="col-lg-12 text-center my-auto">
+
+                <small class="s-color">Chào Mừng Bạn Đến Với Website Cá Nhân Của Mình!</small>
+                <div class="animated">
+                    Mình là<br>
+                    <span class="color-primary" id="animated-name"></span>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <p class="s-color mt-5">{{info.mini_about}}</p>
+                    </div>
+                </div>
+
+                <div class="social-icons m-0 mt-3" style="justify-content: center;">
+                    <a href="{{info.github}}" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="{{info.linkedin}}" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="{{info.instagram}}" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="{{info.facebook}}" target="_blank">
+                        <i class="fab fa-facebook-f"></i></i>
+                    </a>
+                    <a href="{{info.twitter}}" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                {% include 'nav.html' %}
+            </div>
+            
+            
+        </div>
+        <a href="/#experiences" class="scroll__down">
+            <span class="scroll__mouse">
+                
+                <span class="scroll__wheel"></span>
+            </span>
+        </a>
+
+        <!-- Experiences and Achievements -->
+        {% include 'experiences_and_achievements.html' %}
+
+        <!-- Languages and Tools -->
+        {% include 'languages_and_tools.html' %}
+
+        <!-- Projects -->
+        {% include 'projects.html' %}
+
+        <!-- About and Contact -->
+        {% include 'about_and_contact.html'%}
+
+    </div>
+{% endblock content %}

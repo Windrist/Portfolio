@@ -1,0 +1,70 @@
+<!-- Sidebar -->
+<ul class="navbar-nav sidebar dash_sidebar" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    
+    <a class="sidebar-brand d-flex align-items-center justify-content-center">
+        <div class="sidebar-brand-icon text-white">
+            <i class="fas fa-tachometer-alt"></i>
+        </div>
+        <div class="sidebar-brand-text dash-icon">Dashboard</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Information
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item my-1">
+        <a class="{% if profile_active %}link-active{% endif %}" href="{% url 'dashboard:profile' %}">
+            <i class="fas fa-cog"></i>
+            <span>Profile</span>
+        </a>
+    </li>
+    <li class="nav-item mb-1">
+        <a class="{% if messages_active %}link-active{% endif %}" href="{% url 'dashboard:messages' %}">
+            <i class="fas fa-envelope"></i>
+            <span>Messages</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider mt-2">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Addons
+    </div>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item mt-1">
+        <a class="" href="charts.html">
+            <i class="fas fa-chart-area"></i>
+            <span>Projects</span></a>
+    </li>
+    <li class="nav-item mt-1">
+        <a class="" href="charts.html">
+            <i class="ni ni-atom"></i>
+            <span>Skills</span></a>
+    </li>
+
+    <li class="nav-item mt-1">
+        <a class="" href="charts.html">
+            <i class="ni ni-hat-3"></i>
+            <span>Experiences</span></a>
+    </li>
+
+    <li class="nav-item my-1">
+        <a class="" href="charts.html">
+            <i class="ni ni-archive-2"></i>
+            <span>Achievements</span></a>
+    </li>
+</ul>
+<!-- End of Sidebar -->

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link type="text/css" href="{% static 'dashboard.css' %}" rel="stylesheet">
+{% endblock style %}
+
+{% block body %}
+
+<div class="container mt-lg-8">
+    <div class="row">
+        <div class="col-lg-4 sidebar p-0">
+            <a href="{% url 'dashboard:dashboard' %}">
+                <div class="row info {% if dashboard %}dashboard-active {% else %}info-unactive{% endif %}">
+                    <div class="col-2 pic">
+                        <div class="profile-pic shadow" style="background-image: url('{% if profile.avatar %}{{profile.avatar.url}}{% else %}{% static 'img/default-avatar.svg' %}{% endif %}')">
+                        </div>
+                    </div>
+                    <div class="col-10 name">
+                        <h5 class="full-name">{{profile.name_complete}}</h5>
+                        <p class="email">{{profile.email}}</p>
+                    </div>
+                </div>
+            </a>
+            <hr class="m-0 mb-1">
+            <ul class="sidebar-list">
+                <a href="{% url 'dashboard:profile' %}">
+                    <li class="{% if profile_active %}link-active{% endif %}">
+                        {% comment %} <img src="{% static 'img/profile.svg' %}" width='25px'> {% endcomment %}
+                        <i class="uil uil-user dashboard-icon"></i>
+                        Profile
+                    </li>
+                </a>
+                <a href="{% url 'dashboard:messages' %}">
+                    <li class="{% if messages_active %}link-active{% endif %}">
+                        {% comment %} <img src="{% static 'img/messages.svg' %}" width='25px'> {% endcomment %}
+                        <i class="uil uil-envelope-download dashboard-icon"></i>
+                        Messages
+                    </li>
+                </a>
+                <hr class="sidebar-line">
+                <a href="{% url 'dashboard:experiences' %}">
+                    <li class="{% if experiences_active %}link-active{% endif %}">
+                        {% comment %} <img src="{% static 'img/experiences.svg' %}" width='28px'> {% endcomment %}
+                        <i class="uil uil-graduation-cap dashboard-icon"></i>
+                        Experiences
+                    </li>
+                </a>
+                <a href="{% url 'dashboard:achievements' %}">
+                    <li class="{% if achievements_active %}link-active{% endif %}">
+                        {% comment %} <img src="{% static 'img/achievements.svg' %}" width='28px'> {% endcomment %}
+                        <i class="uil uil-spinner-alt dashboard-icon"></i>
+                        Achievements
+                    </li>
+                </a>
+                <a href="{% url 'dashboard:skills' %}">
+                    <li class="{% if skills_active %}link-active{% endif %}">
+                        {% comment %} <img src="{% static 'img/skills.svg' %}" width='28px'> {% endcomment %}
+                        <i class="uil uil-award dashboard-icon"></i>
+                        Skills
+                    </li>
+                </a>
+                <a href="{% url 'dashboard:projects' %}">
+                    <li class="{% if projects_active %}link-active{% endif %}">
+                        {% comment %} <img src="{% static 'img/dash-projects.svg' %}" width='25px'> {% endcomment %}
+                        <i class="uil uil-folder-open dashboard-icon"></i>
+                        Projects
+                    </li>
+                </a>
+            </ul>
+            <hr class="sidebar-line">
+            <div class="container text-center sidebar-footer">
+                <a href="{% url 'homePage' %}">
+                    <img class="svg-icon-home" src="{% static 'img/home-icon.svg' %}" width='20px'>
+                    Home
+                </a>
+                <a href="{% url 'dashboard:logout' %}" id="logout">
+                    <img class="svg-icon-logout" src="{% static 'img/logout-icon.svg' %}" width='20px'>
+                    Logout
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-8 dashboard-content pl-lg-4">
+            {% block dashboardContent %}
+                <div class="dashboard-title">Dashboard</div>
+                <div class=""><small>Welcome Again</small></div>
+                <div class="row">
+                    <div class="col-12 card">
+                        <div class="">
+                            <div class="">
+                                <div class="">
+                                    Welcome Again
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endblock dashboardContent %}
+        </div>
+    </div>
+</div>
+
+<div class="container dash-footer my-6 py-2">
+    <div class="text-center">
+        <p class="coder">Built and Remastered with <i class="fa fa-heart text-danger"></i> By <a href="https://github.com/Windrist">Trần Hữu Quốc Đông</a></p>
+        <p> - Original Build By Abdelaali ES SALMI - </p>
+    </div>
+</div>
+
+
+{% endblock body %}
+
+
+
+{% block script %}
+    <script src="{% static 'dashboard.js' %}"></script>
+{% endblock script %}

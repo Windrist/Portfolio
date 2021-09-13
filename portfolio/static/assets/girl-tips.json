@@ -1,0 +1,27 @@
+{
+    "mouseover": [{
+        "selector": "#live2d",
+        "text": [" Ngày hôm nay thế nào bạn hiền? ", " Này này.....<br> Con trỏ chuột đang chỉ vào chỗ nào thế hả! ", " Bạn đang làm gì đấy? ", " Meow meow? UwU? ", " Ma Cà Rồng đây! Sợ chưa sợ chưa? ", " Dâm tặc! Cứu! ", " Riêng chỗ này cứ dùng lực mạnh vào! ", " Mình bực rồi đấy! ", " Đừng để mình động tay! "]
+    }, {
+        "selector": "#waifu-tool .fa-comment",
+        "text": [" Đoán xem mình định nói gì nào? ", " Đông Đại Ca đã dạy cho mình rất nhiều thứ đấy. "]
+    }, {
+        "selector": "#waifu-tool .fa-paper-plane",
+        "text": [" Chơi game máy bay với mình không bạn? ", " Đừng ấn nút đó! Nghiện đấy! ", " Chơi game với mình không bạn hiền? ", " Nghe bảo bạn lái máy bay ghê lắm? "]
+    }, {
+        "selector": "#waifu-tool .fa-user-circle",
+        "text": [" Bạn có muốn gặp đứa em của mình không? "]
+    }, {
+        "selector": "#waifu-tool .fa-street-view",
+        "text": [" Alo Alo! ", " Bạn muốn tìm ai đấy nhỉ? "]
+    }, {
+        "selector": "#waifu-tool .fa-camera-retro",
+        "text": [" Bạn muốn chụp ảnh mình à? Ba, hai, một Cheese! ", " Ỏ, mình sẵn sáng rồi, chụp đi bạn! ", " Mình đang cười đây nè! Ấn để chụp đi bạn ơi! "]
+    }, {
+        "selector": "#waifu-tool .fa-info-circle",
+        "text": [" Bạn muốn biết thêm về mình à? ", " Nhật ký cuộc đời của mình đấy. ", " Bạn muốn tìm hiểu con người mình à? "]
+    }, {
+        "selector": "#waifu-tool .fa-times",
+        "text": [" Đây là lúc phải nói lời tạm biệt bạn ư? ", " Hẹn gặp lại ...... ", " Đừng bỏ rơi mình đấy ...... ", " Chúng ta sẽ còn gặp lại nhau mà đúng không ...... "]
+    }]
+}

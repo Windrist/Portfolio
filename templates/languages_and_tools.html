@@ -1,0 +1,39 @@
+<div class="row mt-5">
+    <div class="col-lg-12">
+        <h1 class="display-4 title mb-0" id="skills">
+            <i class="ni ni-atom"></i> 
+            Skills
+        </h1>
+        <small class="s-color">Các Ngôn Ngữ, Công Cụ và Platform mình đã từng sử dụng</small>
+        <div class="row">
+        {% for skill in skills %}
+            <div class="col-lg-2 col-sm-6 justify-content-center mt-3" data-toggle="modal" data-target=".competance-model-{{skill.id}}">
+                    <div class="skill-card text-center mirror-face">
+                        <div class="card-body">
+                            <img class="skill-img" alt="{{skill.title}} logo" src="{{skill.image.url}}">
+                            <p class="font-weight-normal pt-2 mb-0">{{skill.title}}</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal fade competance-model-{{skill.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content skill-modal mirror-face mt-8">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{skill.title}}</h5>
+                        <a data-dismiss="modal" aria-label="Close">
+                        <i class="far fa-times-circle modal-closse-btn"></i>
+                        </a>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{skill.description}}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+        {% endfor %}
+        </div>
+
+    </div>
+</div>

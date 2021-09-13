@@ -1,0 +1,101 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>{% block title %}Trần Hữu Quốc Đông - Personal{% endblock title %}</title>
+
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.svg' %}"/>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+        <!-- Icons -->
+        <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+
+
+        <!-- Argon CSS -->
+        <link type="text/css" href="{% static 'css/argon-design-system.min.css' %}" rel="stylesheet">
+
+        <!-- Costom CSS -->
+        <link type="text/css" href="{% static 'app.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'animation.css' %}" rel="stylesheet">
+        
+        <link type="text/css" href="{% static 'slider.css' %}" rel="stylesheet">
+        {% block style %}{% endblock style %}
+
+    </head>
+    <body>
+        {% if request.META.HTTP_HOST == 'windrist.com' %}
+            <meta http-equiv="REFRESH" content="0;url=https://windrist.com/">
+        {% endif %}
+        {% block body %}
+            <!-- particles.js container --> 
+            <div id="particles-js">
+                <canvas class="particles-js-canvas-el" width="1874" height="1998" style="width: 100%; height: 100%;"></canvas>
+            </div> 
+            {% comment %} {% include 'navbar.html' %} {% endcomment %}
+            {% block content %}
+            {% endblock content %}
+
+            <!-- Back to top button -->
+            {% comment %} <a id="Back-to-top-button"><i class="fa fa-angle-up fa-3x"></i></a> {% endcomment %}
+            <a id="Back-to-top-button">
+                <img class="" src="{% static 'img/rocket.svg' %}" >
+            </a>
+
+            <div class="container">
+                <hr>
+                <div class="row pb-3 footer">
+                    <div class="col-12 text-center">
+                        <p class="coder">Built and Remastered with <i class="fa fa-heart text-danger"></i> By <a href="https://github.com/Windrist">Trần Hữu Quốc Đông</a></p>
+                        <p> - Original Build By Abdelaali ES SALMI - </p>
+                    </div>
+                </div>
+            </div>
+        {% endblock body %}
+
+        <!-- Core -->
+        <script src="{% static 'js/core/jquery.min.js' %}"></script>
+        <script src="{% static 'js/core/popper.min.js' %}"></script>
+        <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+
+        <!-- Optional plugins -->
+        <script src="{% static 'js/plugins/girl.min.js' %}"></script>
+
+        <!-- Argon JS -->
+        <script src="{% static 'js/argon-design-system.js' %}"></script>
+
+
+        <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+        <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+        <!-- stats.js lib --> 
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+        <script src="{% static 'animation.js' %}"></script>
+
+        <!-- Custom JS-->
+        <script src="{% static 'app.js' %}"></script>
+        <script>
+            var btn = $('#Back-to-top-button');
+
+            $(window).scroll(function() {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+            });
+
+            btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop:0}, '300');
+            });
+        </script>
+        {% block script %}
+        {% endblock script %}
+    </body>
+</html>

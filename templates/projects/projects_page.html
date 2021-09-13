@@ -1,0 +1,45 @@
+{% extends 'base.html' %}{% load static %}{% load filter_tags %}
+
+{% block content %}
+{% include 'navbar.html' %}
+    <div class="container">
+        <div class="row pt-lg-4 justify-content-center">
+            <div class="col-12 text-center">
+                <h1 class="display-3 title m-0">Projects</h1>
+                <p class="s-color">Tập hợp tất cả Project của mình!</p>
+            </div>
+
+            <div class="col-lg-8">
+                <form class="search-form" id="search-form" onSubmit="return false">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative mb-4">
+                            <input id="search-input" class="form-control search-input" name="searchText" placeholder="Search for projects with titles, descriptions, or tools." type="text" required>
+                            <div class="search-btn" id="search-btn">
+                                <span><i class="fa fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                <form>
+            </div>
+        </div>
+        <hr class="mt-2 mb-4 ">
+
+
+        <div class="row" id="projectsContainer">
+            {% for project in projects %}
+                <div class="col-lg-4 mb-4 ">
+                    <a href="{{project.get_project_absolute_url}}">
+                        <div class="project-card mirror-face">
+                                <div class="project-card-img">
+                                    <img src="{{project.image.url}}">
+                                </div>
+                            <div class="card-body pt-0">
+                                <h1 class="project-card-title">{{project.title|truncatechars:22}}</h1>
+                                <p class="project-card-disc">{{project.description|truncatechars:100}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock content %}

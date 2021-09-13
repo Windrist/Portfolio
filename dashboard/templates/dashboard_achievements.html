@@ -1,0 +1,85 @@
+{% extends 'dashboard.html' %}
+
+{% load static %}
+
+{% block dashboardContent %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="dashboard-title">Achievements</div>
+            <small>Manage your Achievements</small>
+        </div>
+        
+        <div class="col-6">
+            <div class="create-one" id="display-create-achievement-form">
+                Create One
+            </div>
+        </div>
+    </div>
+    <hr class="mt-2">
+
+
+    <div class="create-achievement-form hide">
+        <form>
+            <div class="form-group">
+                <lable>Title</lable>
+                <input type="text" class="form-control" id="form-title" placeholder="Achievement title">
+            </div>
+            <div class="form-group">
+                <lable>Description</lable>
+                <textarea class="form-control" id="form-description" rows="10" placeholder="Achievement description"></textarea>
+            </div>
+            <div class="form-group">
+                <lable>Date</lable>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="uil uil-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="form-date" placeholder="Achievement year">
+                </div>
+            </div>
+            <input type="hidden" id="achievement-id">
+        </form>
+        <div class="modal-footer">
+            <a class="submit" id="creat-achievement-btn">
+                <img src="{% static 'img/save-icon.svg' %}" width='25px'>
+                Save
+            </a>
+            <a class="submit" id="submit-update-achievement">
+                <img src="{% static 'img/edit-icon.svg' %}" width='25px'>
+                Update
+            </a>
+
+            <a class="cancel-edit" id="display-create-achievement-form">
+                <img src="{% static 'img/close-icon.svg' %}" width='25px'>
+                Close
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        {% comment %} <div class="ml-3 mt-4 h5">Achievements</div> {% endcomment %}
+        <div class="col-12 dashboard-list" id="dashboard-achievements-list">
+            {% for achievement in achievements %}
+                <div class="row item">
+                    <div class="col-3 item-name">
+                        {{achievement.title|truncatechars:15}}
+                    </div>
+                    <div class="col-6 text-muted text-left">
+                        {{achievement.description|truncatechars:38}}
+                    </div>
+                    <div class="col-3 text-right">
+                        <!-- <i class="uil uil-edit-alt icon-edit"></i>
+                        <i class="uil uil-trash-alt icon-delete"></i> -->
+                        <img class="svg-icon-edit-achievement" src="{% static 'img/edit-icon.svg' %}" width='20px' id="{{achievement.id}}">
+                        <img class="svg-icon-delete-achievement" src="{% static 'img/trash-icon.svg' %}" width='20px' id="{{achievement.id}}">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+
+{% endblock dashboardContent %}

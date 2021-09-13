@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}Login{% endblock title %}
+{% comment %} {% block bodyclass %}{{ block.super }} login{% endblock %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}{% endblock %} {% endcomment %}
+
+{% block content %}
+	<div class="container">
+		<div class="row justify-content-center mt-6 mb-8">
+			<div class="col-lg-6 col-12 text-center">
+				<div class="login-card">
+					<div class="login-card-header">
+						<h3>Welcome</h3>
+					</div>
+					<div class="mx-5">
+						<div id="content-main">
+
+						{% if user.is_authenticated %}
+							<meta http-equiv="REFRESH" content="0;url={{ request.scheme }}://{{ request.META.HTTP_HOST }}/dashboard/">
+						{% endif %}
+						{% if message %}
+							<p class="errornote">
+								{{message}}
+							</p>
+						{% endif %}
+
+						<form class="login-form" action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+
+							<div class="form-group mb-3">
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+									</div>
+									<input class="form-control" name="username" placeholder="Username" type="text">
+								</div>
+								<small class="text-danger text-left">{{ form.username.errors }}</small>
+							</div>
+
+							<div class="form-group mb-3">
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+									</div>
+									<input id="password-input" class="form-control" name="password" placeholder="Password" type="password">
+									<a class="show-password fa fa-eye"></a>
+									<input type="hidden" name="next" value="{{ next }}">
+								</div>
+								<small class="text-danger text-left">{{ form.password.errors }}</small>
+							</div>
+							
+							<div class="text-center">
+								<input class="login-btn my-4 pl-5 pr-5 text-capitalize" type="submit" value="{% trans 'Log in' %}">
+							</div>
+						</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

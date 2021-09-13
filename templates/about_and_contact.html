@@ -1,0 +1,89 @@
+<div class="row mt-lg-6 justify-content-center">
+    <div class="col-lg-6 mx-lg-0 mx-2 about mirror-face">
+        <div class="text-white p-2">
+            <div id="about-me">
+                <h2 class="display-4">About Me</h2>
+                <p class="">{{info.about}}</p>
+            </div>
+            <div id="contact-me">
+                <h2 class="display-4">Contact Me</h2>
+                <p class="mb-0 text-muted">
+                    <i class="fas fa-phone"></i>
+                    <span class="ml-2">{{info.phone}}<span>
+                </p>
+                <p class="mb-0 text-muted">
+                    <i class="fa fa-envelope"></i>
+                    <a class="" href="mailto:{{info.email}}">{{info.email}}</a>
+                </p>
+                <div class="social text-center">
+                    <a href="{{info.github}}" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="{{info.linkedin}}" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="{{info.instagram}}" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="{{info.facebook}}" target="_blank">
+                        <i class="fab fa-facebook-f"></i></i>
+                    </a>
+
+                    <a href="{{info.twitter}}" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 pl-lg-4 mt-lg-0 mt-6 contact" id="message-me">
+        <h2>Interested to Contact Me? <span>Let's talk</span></h2>
+
+        <form class="form" id="form">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input name="name" id="form-name" type="text" placeholder="Your Name" class="form-control input" autocomplete="off"/>
+                        <div id="name-error"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input name="email" id="form-email" type="email" class="form-control input" placeholder="Your E-Mail" autocomplete="off">
+                        <div id="email-error"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea name="message" id="form-message" class="form-control input" rows="7" placeholder="Your Message here ..." autocomplete="off"></textarea>
+                <div id="message-error"></div>
+            </div>
+
+            <div class="form-group" id="error" style="display:none">
+                <div id="send-error"></div>
+            </div>
+
+            <a id="form-submit">
+                <div class="send-message">
+                    Send <i class="ni ni-send"></i>
+                </div>
+            </a>
+        </form>
+
+        <!-- Small modal -->
+        <button style="display:none;" type="button" id="modal-toggle" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm pt-8">
+            <div class="modal-content text-success p-3 text-center send-success">
+                <i class="fa fa-check-circle fa-3x"></i>
+                <p class="">Your message has sent successfully.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

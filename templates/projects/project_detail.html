@@ -1,0 +1,41 @@
+{% extends 'base.html' %}{% load static %}{% load filter_tags %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+    <div class="row p-lg-4 p-2 justify-content-center">
+        <div class="col-12">
+            <p class="project-title mb-3">{{project.title}}</p> 
+            <hr class="mt-2 mb-0">
+        </div>
+        <div class="col-lg-10 col-12">
+            <img class="d-block w-100 project-image" src="{{project.image.url}}" alt="{{project.title}} (img)">
+        </div>
+        <div class="col-12 text-left">
+            <p class="mini-title">Mô Tả:</p>
+            <p class="project-disc">{{project.description|safe}}</p>
+            
+            <div class="mt-4">
+                <p class="mini-title">Công Cụ và Ngôn Ngữ sử dụng:</p>
+                {% with project.tools|split:"," as tools %}
+                    {% for tool in tools %}
+                        <span class="tool">{{tool}}</span>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+
+            <div class="text-left pt-4">
+                <p class="mini-title mb-3">Xem Thử:</p>
+                <a href="{{project.github}}" class="preview-btn">
+                    <i class="fab fa-github"></i>
+                    Source Code On Github
+                </a>
+                <a href="{{project.demo}}" class="preview-btn">
+                    <i class="fas fa-globe"></i> 
+                    Site Web On Live
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg py-lg-1 pt-3">{% load static %}
+    <div class="container nav-bar">
+
+        <a class="name" href="/">
+            {% comment %} <i class="fa fa-code"></i> {% endcomment %}
+             Trần Hữu Quốc Đông
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars text-white"></i>
+        </button>
+
+        <div class="collapse navbar-collapse nav-bar" id="navbar-default">
+            <div class="navbar-collapse-header">
+                <div class="row">
+                    <div class="col-10 collapse-brand">
+                        <a href="javascript:void(0)" class="name">
+                            Trần Hữu Quốc Đông
+                        </a>
+                    </div>
+                    <div class="col-2 collapse-close text-center">
+                        <button type="button" class="navbar-toggler text-warning" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <ul class="navbar-nav ml-lg-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/#experiences">
+                        {% comment %} <i class="fa fa-graduation-cap"></i> {% endcomment %}
+                        <span class="nav-text">Experiences</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#skills">
+                        {% comment %} <i class="fa fa-graduation-cap"></i> {% endcomment %}
+                        <span class="nav-text">Skills</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#projects">
+                        {% comment %} <i class="fa fa-tasks"></i> {% endcomment %}
+                        <span class="nav-text">Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#contact-me">
+                        {% comment %} <i class="fa fa-envelope"></i> {% endcomment %}
+                        <span class="nav-text">Contact Me</span>
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+</nav>
