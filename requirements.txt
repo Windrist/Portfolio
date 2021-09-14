@@ -23,3 +23,5 @@ django-ckeditor
 djangorestframework
 django-heroku
 mysqlclient
+django-storages
+dropbox

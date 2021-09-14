@@ -11,12 +11,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default="1")
-DATABASE_URL = config('DATABASE_URL', default="sqlite:///db.sqlite3")
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
+# Change Allowed Hosts
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'windrist.com', 'www.windrist.com', 'windrist.herokuapp.com']
 
 CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     'ckeditor',
     'rest_framework',
+
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -57,9 +59,6 @@ MIDDLEWARE = [
     # whitenoise for static files
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# SECURE_SSL_REDIRECT = True
 
 ROOT_URLCONF = 'portfolio.urls'
 
@@ -91,17 +90,14 @@ if not DEBUG:
     # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
     DATABASES = {
         'default': dj_database_url.config(
-            default=DATABASE_URL
+            default=config('DATABASE_URL')
         )
     }
     
     # Storage settings
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': config('CLOUD_NAME', default=''),
-        'API_KEY': config('API_KEY', default=''),
-        'API_SECRET': config('API_SECRET', default=''),
-    }
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+    DROPBOX_OAUTH2_TOKEN = config('DROPBOX_OAUTH2_TOKEN')
+    DROPBOX_ROOT_PATH = '/media/'
 
 else:
     DATABASES = {
@@ -154,11 +150,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Uncomment if want to force to use SSL/HTTPS
+# https://docs.djangoproject.com/en/2.2/topics/security/
+
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 STATIC_URL = '/static/'
@@ -169,6 +169,8 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Logging for Debug=False - Uncomment if need
 
 # LOGGING = {
 #     'version': 1,
@@ -209,6 +211,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #     }
 # }
 
-django_heroku.settings(config=locals(), logging=False)
+# Settings for Heroku - Comment if use Custom Hostserver
+# https://devcenter.heroku.com/articles/django-app-configuration
 
+django_heroku.settings(config=locals(), logging=False)
 # del DATABASES['default']['OPTIONS']['sslmode']

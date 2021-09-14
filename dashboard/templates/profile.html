@@ -28,7 +28,7 @@
                         <span>Change Image</span>
                     </div>
                 </label>
-                <input type="File" name="avatar" id="profile-pic">
+                <input type="file" name="avatar" id="profile-pic">
             </form>
         </div>
         <div class="col-12 text-center">
@@ -133,6 +133,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-gr">
+                        <i class="fas fa-info"></i>
+                        <label class="label">CV</label>
+                        <input type="file" class="form-control" id="cv">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="input-gr">
                         <i class="fas fa-envelope"></i>
                         <label class="label">Email</label>
                         <input type="text" id="email" class="form-control" value="{% if profile.email %}{{profile.email}}{% endif %}">
@@ -169,7 +176,7 @@
                 <div class="col-md-6">
                     <div class="input-gr">
                         <i class="fab fa-twitter"></i>
-                        <label class="label">Twitte</label>
+                        <label class="label">Twitter</label>
                         <input type="text" id="twitter" class="form-control" value="{{profile.twitter}}">
                     </div>
                 </div>

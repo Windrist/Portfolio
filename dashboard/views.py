@@ -68,12 +68,15 @@ def profile_edit(request):
         instance = Information.objects.first()
 
         avatar = request.FILES.get('avatar', False)
+        cv = request.FILES.get('cv', False)
         if avatar:
-            account = Information.objects.first()
-            account.avatar = avatar
-            account.save()
+            instance.avatar = avatar
+            instance.save()
             return redirect('dashboard:profile')
         else:
+            if cv:
+                instance.cv = cv
+                instance.save()
             form = EditProfileForm(instance=instance, data=request.POST)
             if form.is_valid():
                 form.save()

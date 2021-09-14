@@ -17,12 +17,12 @@ Personal portfolio website made with Django framework in the backend, and with C
     ```bash
     SECRET_KEY
     DATABASE_URL
-    CLOUD_NAME
-    API_SECRET
-    API_KEY
+    DROPBOX_OAUTH2_TOKEN
     ```
     - SECRET_KEY and DATABASE_URL have defaut value
-    - CLOUD_NAME, API_SECRET and API_KEY get at Cloudinary
+    - DROPBOX_OAUTH2_TOKEN get at Dropbox API for save file
+    - Check [settings.py](https://github.com/Windrist/Portfolio/blob/Release/portfolio/settings.py) for more information
+
 - #### Run Django to Test:
     ```bash
     python manage.py collectstatic --no-input
@@ -31,6 +31,16 @@ Personal portfolio website made with Django framework in the backend, and with C
     ```
 - #### On your web browser, check this link: localhost:8000
 
+## Screenshots:
+- #### Homepage:
+    ![alt text](https://res.cloudinary.com/windrist/image/upload/v1631586579/Github/Home_pf5gph.png)
+
+- #### Experiences and Achievements:
+    ![alt text](https://res.cloudinary.com/windrist/image/upload/v1631586580/Github/Experiences_nclcll.png)
+
+- #### Projects and About Me:
+    ![alt text](https://res.cloudinary.com/windrist/image/upload/v1631586572/Github/Projects_p3tvdx.png)
+
 ## Credits:
 * #### Thanks for Orgininal Build of this project made by - Abdelaali ES SALMI -
 * #### Link: [Github](https://github.com/abdlalisalmi/DJANGO-Portfolio/README.md)
@@ -38,4 +48,4 @@ Personal portfolio website made with Django framework in the backend, and with C
     * Add Full Options to Dashboard
     * Add Anime Girl (My Favorite Hobby, if you don't like pls disable it in "base.html")
     * Fix Some Bug
-* #### Hope you like this Website! Enjoy!!!
+* #### Hope you like my Website! Enjoy!!!

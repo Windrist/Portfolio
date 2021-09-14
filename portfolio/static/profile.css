@@ -47,7 +47,11 @@ body {
     padding-bottom: 4.5em;
 }
 
-form input[type="file"] {
+/* form input[type="file"] {
+          display: none;
+          cursor: pointer;
+ } */
+ #profile-pic {
           display: none;
           cursor: pointer;
  }

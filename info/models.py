@@ -12,7 +12,7 @@ class Information(models.Model):
     phone = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField(max_length=255, blank=True, null=True)
 
-    cv = models.FileField(upload_to='cv', blank=True, null=True)
+    cv = models.FileField(upload_to='cv/', blank=True, null=True)
 
     # Social Network
     github = models.URLField(blank=True, null=True)

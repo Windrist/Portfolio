@@ -17,6 +17,7 @@ if (saveProfileEdit) {
 		formData.append('instagram', document.querySelector('#instagram').value);
 		formData.append('twitter', document.querySelector('#twitter').value);
 		formData.append('phone', document.querySelector('#phone').value);
+		formData.append('cv', document.querySelector('#cv').files[0]);
 		
 		fetch('/dashboard/profile/edit/', {
 			body: formData,

@@ -818,6 +818,31 @@ hr {
     color: var(--color);
 }
 
+.cv_button {
+    margin-top: 10px;
+    border: var(--scolor) solid 1px;
+    color: var(--scolor);
+    border-radius: 10px;
+    font-weight: 700;
+    padding: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all .5s;
+}
+.cv_button * {
+    color: var(--color);
+}
+.cv_button:hover {
+    color: #fff;
+    background-color: var(--scolor);
+}
+.cv_button:hover * {
+    color: var(--secondary);
+}
 
+.cv_button a {
+    color: #fff;
+    text-decoration: none;
+}
 
 /* login page */
